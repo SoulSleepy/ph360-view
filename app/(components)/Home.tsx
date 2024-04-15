@@ -19,7 +19,7 @@ export const Home = () => {
     const dispatch = useDispatch()
     const { photos } = useAppSelector((store) => store.photo)
     const { push } = useRouter()
-    const [isLoaing, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [lengthFiles, setLengthFiles] = useState(0)
 
     const selectPhoto = (img: string) => {
@@ -79,6 +79,9 @@ export const Home = () => {
                         Просмотр изображений
                     </p>
                 </div>
+                <Loader isLoading={isLoading}>
+                    <></>
+                </Loader>
                 <form
                     onSubmit={onSubmit}
                     className='flex flex-row gap-2 w-[400px] items-center'
@@ -152,9 +155,6 @@ export const Home = () => {
                             )
                         })}
                 </div>
-                <Loader isLoading={isLoaing}>
-                    <></>
-                </Loader>
             </div>
         </div>
     )
